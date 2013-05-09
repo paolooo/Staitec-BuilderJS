@@ -12,7 +12,13 @@ module.exports = (grunt) ->
         dest: 'public'
         ext: '.html'
 
+    watch:
+      jade:
+        files: "**/*.jade"
+        tasks: ['jade']
+
   grunt.loadNpmTasks 'grunt-contrib-jade'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
+  
 
-  grunt.registerTask 'default', ['jade']
-
+  grunt.registerTask 'default', ['watch']

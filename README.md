@@ -1,12 +1,27 @@
-player-html5
-============
+# Player FM HTML5
 
 DOM + JS + Podcasts === BOOM
 
 ## Installation
 
-Install node packages using `npm` command line. This will install all the necessary packages for the development. These packages are Jade, Stylus, CoffeeScript, Grunt, and Grunt-cli.
-Make sure you have NodeJS installed in your computer.
+Install node packages using `npm` command line. This will install all the necessary packages for the development.
 
-Just simply run `npm install` to install the packages.
+The packages are the following:
+* Jade
+* Stylus
+* CoffeeScript
+* Grunt
+* Grunt-cli
+* Grunt-contrib-[jade, watch, coffee, stylus]
 
+First, make sure you have installed NodeJS in your computer. If you haven't, you can download and install NodeJS here: http://nodejs.org/download/
+
+Run `npm install` to install the packages.
+
+## Quickstart
+
+1. Run Grunt watch
+
+```bash
+$ grunt watch
+```
