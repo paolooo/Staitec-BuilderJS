@@ -6,6 +6,7 @@
     "jade": "~0.30.0",
     "coffee-script": "~1.6.2",
     "stylus": "~0.32.1",
+    "nib": "~0.9.1",
     "grunt": "~0.4.1",
     "grunt-contrib-jade": "~0.5.1",
     "grunt-contrib-coffee": "~0.7.0",
