@@ -1,0 +1,14 @@
+{
+  "name": "PlayerFM-HTML5",
+  "version": "0.0.1",
+  "description": "Player FM",
+  "devDependencies": {
+    "jade": "~0.30.0",
+    "coffee-script": "~1.6.2",
+    "stylus": "~0.32.1",
+    "grunt": "~0.4.1"
+  },
+  "scripts": {
+    "preinstall": "npm i -g grunt-cli"
+  }
+}
