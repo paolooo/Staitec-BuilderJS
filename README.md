@@ -1,6 +1,6 @@
-# Player FM HTML5
+# Staitec Builder JS
 
-DOM + JS + Podcasts === BOOM
+Staitec Builder is a static website builder that uses the power of nodejs + packages such as jade, stylus, coffeescript, and grunt to build "Static Web Site" in no time.
 
 ## Installation
 
