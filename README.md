@@ -16,11 +16,15 @@ The packages are the following:
 
 First, make sure you have installed NodeJS in your computer. If you haven't, you can download and install NodeJS here: http://nodejs.org/download/
 
-Run `npm install` to install the packages.
 
 ## Quickstart
 
-1. Run Grunt watch
+1. Install the packages.
+```bash
+$ npm install
+```
+
+2. Run Grunt watch
 
 ```bash
 $ grunt watch
