@@ -29,3 +29,5 @@ $ npm install
 ```bash
 $ grunt server watch
 ```
+
+3. Navigate to `http://localhost:3000/`
