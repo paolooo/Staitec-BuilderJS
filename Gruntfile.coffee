@@ -1,3 +1,11 @@
+'use strict'
+path = require 'path'
+lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet
+
+folderMount = (connect, point) ->
+  return connect.static path.resolve(point)
+
+
 module.exports = (grunt) ->
 
   # Project configuration.
