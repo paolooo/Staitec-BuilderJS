@@ -8,7 +8,7 @@ app = connect()
   .use(connect.directory(__dirname + '/public'))
   .use(connect.cookieParser())
   .use(connect.session(
-    secret: 'playerfm@20130510@'
+    secret: 'nodejspaolo'
   ))
   .use (req, res) ->
     res.end "<h1>404 Not Found</h1>\n"
