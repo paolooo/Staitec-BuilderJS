@@ -10,9 +10,10 @@ The packages are the following:
 * Jade
 * Stylus
 * CoffeeScript
+* Livereload
 * Grunt
 * Grunt-cli
-* Grunt-contrib-[jade, watch, coffee, stylus]
+* Grunt-contrib-[jade, watch, coffee, stylus, connect, livereload]
 
 First, make sure you have installed NodeJS in your computer. If you haven't, you can download and install NodeJS here: http://nodejs.org/download/
 
@@ -25,7 +26,6 @@ $ npm install
 ```
 
 2. Run Grunt watch
-
 ```bash
-$ grunt watch
+$ grunt server watch
 ```

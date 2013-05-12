@@ -6,6 +6,14 @@ module.exports = (grunt) ->
       source: 'app/assets'
       publish: 'public'
 
+    livereload:
+      port: 35729 # Default livereload listening port.
+    connect:
+      options:
+        port: 9001
+        middleware: (connect, options)->
+          return [lsSnippet, folderMound connect, options.base]
+
     jade:
       options:
         pretty: true
@@ -17,6 +25,9 @@ module.exports = (grunt) ->
         ext: '.html'
 
     coffee:
+      compile:
+        files:
+          'server.js': 'server.coffee'
       glob_to_multiple:
         expand: true
         flatten: true
@@ -47,4 +58,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-stylus'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   
-  grunt.registerTask 'default', ['watch']
+  grunt.registerTask 'default', ['livereload-start', 'connect']
+  grunt.registerTask 'server', 'Start a custome web server', ->
+    grunt.log.writeln 'Started web server on port 3000'
+    require './server.js'
