@@ -20,6 +20,11 @@ First, make sure you have installed NodeJS in your computer. If you haven't, you
 
 ## Quickstart
 
+```bash
+$ npm install
+$ grunt start
+```
+
 1. Install the packages.
 ```bash
 $ npm install
@@ -27,7 +32,7 @@ $ npm install
 
 2. Run Grunt watch
 ```bash
-$ grunt server watch
+$ grunt start
 ```
 
-3. Navigate to `http://localhost:3000/`
+3. Navigate to `http://localhost:3333/`

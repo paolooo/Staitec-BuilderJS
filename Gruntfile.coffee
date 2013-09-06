@@ -1,24 +1,22 @@
 'use strict'
+
 path = require 'path'
 lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet
 
 folderMount = (connect, point) ->
-  return connect.static path.resolve(point)
-
+  return connect.static path.resolve point
 
 module.exports = (grunt) ->
 
   # Project configuration.
   grunt.initConfig
-    path:
-      source: 'app/assets'
-      publish: 'public'
+    pkg: grunt.file.readJSON __dirname + '/package.json'
 
     livereload:
-      port: 35729 # Default livereload listening port.
+      port: '<%= pkg.config.livereload.port %>' # Default livereload listening port.
     connect:
       options:
-        port: 9001
+        port: '<%= pkg.config.connect.port %>'
         middleware: (connect, options)->
           return [lsSnippet, folderMound connect, options.base]
 
@@ -27,28 +25,25 @@ module.exports = (grunt) ->
         pretty: true
       source:
         expand: true
-        cwd: '<%= path.source %>/jade'
+        cwd: '<%= pkg.config.path.source %>/jade'
         src: '**/!(_)*.jade'
-        dest: 'public'
+        dest: '<%= pkg.config.path.dest %>'
         ext: '.html'
 
     coffee:
-      compile:
-        files:
-          'server.js': 'server.coffee'
       glob_to_multiple:
         expand: true
         flatten: true
-        cwd: '<%= path.source %>/coffee'
+        cwd: '<%= pkg.config.path.source %>/coffee'
         src: ['**/*.coffee']
-        dest: '<%= path.publish %>/js'
+        dest: '<%= pkg.config.path.dest %>/js'
         ext: '.js'
 
     stylus:
       compile:
         files:
-          '<%= path.publish %>/css/global.css': '<%= path.source %>/stylus/global.styl'
-          '<%= path.publish %>/css/styles.css': '<%= path.source %>/stylus/styles.styl'
+          '<%= pkg.config.path.dest %>/css/global.css': '<%= pkg.config.path.source %>/stylus/global.styl'
+          '<%= pkg.config.path.dest %>/css/styles.css': '<%= pkg.config.path.source %>/stylus/styles.styl'
 
     watch:
       jade:
@@ -67,6 +62,13 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-watch'
   
   grunt.registerTask 'default', ['livereload-start', 'connect']
-  grunt.registerTask 'server', 'Start a custome web server', ->
-    grunt.log.writeln 'Started web server on port 3000'
-    require './server.js'
+  grunt.registerTask 'start:server', ->
+    grunt.util.spawn
+      cmd: 'coffee'
+      args: ['./server.coffee']
+      opts:
+        stdio: 'inherit'
+
+    grunt.log.writeln 'Started web server on port ', grunt.config.get('pkg').config.server.port
+
+  grunt.registerTask 'start', ['start:server', 'watch']

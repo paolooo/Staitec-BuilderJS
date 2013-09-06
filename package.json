@@ -5,6 +5,21 @@
   "dependencies": {
     "connect": "~2.7.9"
   },
+  "config": {
+    "path": {
+      "source": "app/assets",
+      "dest": "public"
+    },
+    "livereload": {
+      "port": 35729
+    },
+    "connect": {
+      "port": 9001
+    },
+    "server": {
+      "port": 3333
+    }
+  },
   "devDependencies": {
     "jade": "~0.30.0",
     "coffee-script": "~1.6.2",
