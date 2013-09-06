@@ -1,0 +1,14 @@
+{
+  "jade": {
+    "files": "**/*.jade",
+    "tasks": ["jade"]
+  },
+  "coffee": {
+    "files": "**/*.coffee",
+    "tasks": ["coffee"]
+  },
+  "stylus": {
+    "files": "**/*.styl",
+    "tasks": ["stylus"]
+  }
+}

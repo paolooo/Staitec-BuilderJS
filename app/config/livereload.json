@@ -1,0 +1,3 @@
+{
+  "port": "<%= pkg.config.livereload.port %>"
+}

@@ -1,60 +1,34 @@
 'use strict'
 
 path = require 'path'
+
 lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet
 
 folderMount = (connect, point) ->
   return connect.static path.resolve point
 
 module.exports = (grunt) ->
+  pkg = undefined
+
+  readJSON = (path, isPkg = false) ->
+    path = if isPkg then path else "#{pkg.config.dir}/#{path}"
+    json = grunt.file.readJSON __dirname + '/' + path + ".json"
+    return if isPkg then pkg = json else json
 
   # Project configuration.
   grunt.initConfig
-    pkg: grunt.file.readJSON __dirname + '/package.json'
+    pkg: readJSON('package', true)
+    coffee: readJSON "coffee"
+    stylus: readJSON "stylus"
+    jade: readJSON "jade"
+    watch: readJSON "watch"
+    livereload: readJSON 'livereload'
 
-    livereload:
-      port: '<%= pkg.config.livereload.port %>' # Default livereload listening port.
     connect:
       options:
         port: '<%= pkg.config.connect.port %>'
         middleware: (connect, options)->
           return [lsSnippet, folderMound connect, options.base]
-
-    jade:
-      options:
-        pretty: true
-      source:
-        expand: true
-        cwd: '<%= pkg.config.path.source %>/jade'
-        src: '**/!(_)*.jade'
-        dest: '<%= pkg.config.path.dest %>'
-        ext: '.html'
-
-    coffee:
-      glob_to_multiple:
-        expand: true
-        flatten: true
-        cwd: '<%= pkg.config.path.source %>/coffee'
-        src: ['**/*.coffee']
-        dest: '<%= pkg.config.path.dest %>/js'
-        ext: '.js'
-
-    stylus:
-      compile:
-        files:
-          '<%= pkg.config.path.dest %>/css/global.css': '<%= pkg.config.path.source %>/stylus/global.styl'
-          '<%= pkg.config.path.dest %>/css/styles.css': '<%= pkg.config.path.source %>/stylus/styles.styl'
-
-    watch:
-      jade:
-        files: '**/*.jade'
-        tasks: ['jade']
-      coffee:
-        files: '**/*.coffee'
-        tasks: ['coffee']
-      stylus:
-        files: '**/*.styl'
-        tasks: ['stylus']
 
   grunt.loadNpmTasks 'grunt-contrib-jade'
   grunt.loadNpmTasks 'grunt-contrib-coffee'

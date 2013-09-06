@@ -1,0 +1,12 @@
+{
+  "options": {
+    "pretty": true
+  },
+  "source": {
+    "expand": true,
+    "cwd": "<%= pkg.config.path.source %>/jade",
+    "src": "**/!(_)*.jade",
+    "dest": "<%= pkg.config.path.dest %>",
+    "ext": ".html"
+  }
+}

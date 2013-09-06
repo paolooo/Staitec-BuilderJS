@@ -1,0 +1,8 @@
+{
+  "compile": {
+    "files": {
+      "<%= pkg.config.path.dest %>/css/global.css": "<%= pkg.config.path.source %>/stylus/global.styl",
+      "<%= pkg.config.path.dest %>/css/styles.css": "<%= pkg.config.path.source %>/stylus/styles.styl"
+    }
+  }
+}
