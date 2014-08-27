@@ -1,4 +1,4 @@
 node_modules
-public/js/*
-public/css/*
-public/*.html
+public
+.git
+.sass-cache

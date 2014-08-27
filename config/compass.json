@@ -1,0 +1,13 @@
+{
+  "server": {
+    "options": {
+      "cssDir": "<%= pkg.config.path.dest %>",
+      "sassDir": "<%= pkg.config.path.source %>",
+      "imagesDir": "<%= pkg.config.path.dest %>/images",
+      "javascriptsDir": "<%= pkg.config.path.dest %>/javascripts",
+      "fontsDir": "<%= pkg.config.path.dest %>/fonts",
+      "outputStyle": "nested",
+      "relativeAssets": true
+    }
+  }
+}

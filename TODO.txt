@@ -1,0 +1,7 @@
+[x] add JShint
+[x] add sass/compass
+[] add clean up
+[] add server
+[] add dist
+[x] add bower
+[] githook

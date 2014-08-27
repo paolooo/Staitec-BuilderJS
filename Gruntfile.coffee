@@ -1,14 +1,13 @@
-'use strict'
-
 path = require 'path'
-
-lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet
 
 folderMount = (connect, point) ->
   return connect.static path.resolve point
 
 module.exports = (grunt) ->
   pkg = undefined
+
+  require('load-grunt-tasks')(grunt)
+  require('time-grunt')(grunt)
 
   readJSON = (path, isPkg = false) ->
     path = if isPkg then path else "#{pkg.config.dir}/#{path}"
@@ -18,11 +17,15 @@ module.exports = (grunt) ->
   # Project configuration.
   grunt.initConfig
     pkg: readJSON('package', true)
-    coffee: readJSON "coffee"
-    stylus: readJSON "stylus"
-    jade: readJSON "jade"
-    watch: readJSON "watch"
+    coffee: readJSON 'coffee'
+    stylus: readJSON 'stylus'
+    jade: readJSON 'jade'
+    watch: readJSON 'watch'
     livereload: readJSON 'livereload'
+    autoprefixer: readJSON 'autoprefixer'
+    compass: readJSON 'compass'
+    jshint: readJSON 'jshint'
+    githook: readJSON 'githook'
 
     connect:
       options:
@@ -30,12 +33,7 @@ module.exports = (grunt) ->
         middleware: (connect, options)->
           return [lsSnippet, folderMound connect, options.base]
 
-  grunt.loadNpmTasks 'grunt-contrib-jade'
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-stylus'
-  grunt.loadNpmTasks 'grunt-contrib-watch'
-  
-  grunt.registerTask 'default', ['livereload-start', 'connect']
+  grunt.registerTask 'default', ['jshint']
   grunt.registerTask 'start:server', ->
     grunt.util.spawn
       cmd: 'coffee'
@@ -45,4 +43,4 @@ module.exports = (grunt) ->
 
     grunt.log.writeln 'Started web server on port ', grunt.config.get('pkg').config.server.port
 
-  grunt.registerTask 'start', ['start:server', 'watch']
+  grunt.registerTask 'serve', ['start:server', 'watch']

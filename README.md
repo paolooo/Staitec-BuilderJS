@@ -22,22 +22,7 @@ First, make sure you have installed NodeJS in your computer. If you haven't, you
 
 ```bash
 $ npm install
-$ grunt start
+$ grunt serve
 ```
 
-1. Install the packages.
-```bash
-$ npm install
-```
-
-2. Run Grunt watch
-```bash
-$ grunt start
-```
-
-3. Navigate to `http://localhost:3333/`
-
-
-## TODO
-
-1. Add test runner
+Navigate to `http://localhost:3333/`

@@ -13,10 +13,6 @@ app = connect()
   .use(connect.static __dirname + '/' + pkg.config.path.dest)
   .use(connect.directory __dirname + '/' + pkg.config.path.dest)
   .use(connect.cookieParser())
-  .use(connect.session(
-    secret: 'nodejspaolo'
-  ))
-  .use (req, res) ->
-    req.end()
+  .use (req, res) -> res.end()
 
 http.createServer(app).listen pkg.config.server.port

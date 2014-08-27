@@ -1,0 +1,19 @@
+{
+  "name": "Staitec-BuilderJS",
+  "version": "0.0.1",
+  "homepage": "https://github.com/paolooo/Staitec-BuilderJS",
+  "authors": [
+    "Nino Paolo Amarillento <o70vd@yahoo.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

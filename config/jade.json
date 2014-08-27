@@ -4,7 +4,7 @@
   },
   "source": {
     "expand": true,
-    "cwd": "<%= pkg.config.path.source %>/jade",
+    "cwd": "<%= pkg.config.path.source %>",
     "src": "**/!(_)*.jade",
     "dest": "<%= pkg.config.path.dest %>",
     "ext": ".html"

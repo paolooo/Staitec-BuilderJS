@@ -1,0 +1,15 @@
+{
+  "autoprefixer": {
+    "options": {
+      "browsers": ["last 1 version"]
+    },
+    "dist": {
+      "files": {
+        "expand": true,
+        "cwd": "<%= pkg.config.path.dest %>",
+        "src": "{,*/}*.css",
+        "dest": "<%= pkg.config.path.dest %>"
+      }
+    }
+  }
+}

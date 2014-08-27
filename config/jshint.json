@@ -1,0 +1,9 @@
+{
+  "all": [
+    "<%= pkg.config.path.dest %>/**/*.js",
+    "!<%= pkg.config.path.dest %>/vendor/**/*.js"
+  ],
+  "options": {
+    "jshintrc": ".jshintrc"
+  }
+}

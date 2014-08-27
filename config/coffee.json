@@ -1,0 +1,9 @@
+{
+  "compile": {
+    "expand": true,
+    "cwd": "<%= pkg.config.path.source %>",
+    "src": ["**/*.coffee"],
+    "dest": "<%= pkg.config.path.dest %>",
+    "ext": ".js"
+ }
+}

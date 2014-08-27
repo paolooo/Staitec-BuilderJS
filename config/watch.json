@@ -1,0 +1,23 @@
+{
+  "jade": {
+    "files": "**/*.jade",
+    "tasks": ["jade"]
+  },
+  "coffee": {
+    "files": "**/*.coffee",
+    "tasks": ["coffee"]
+  },
+  "stylus": {
+    "files": "**/*.styl",
+    "tasks": ["stylus", "autoprefixer"]
+  },
+  "sass": {
+    "files": "**/*.s{a,c}ss",
+    "tasks": ["compass", "autoprefixer"]
+  },
+  "options": {
+    "livereload": {
+      "port": "<%= pkg.config.livereload.port %>"
+    }
+  }
+}
